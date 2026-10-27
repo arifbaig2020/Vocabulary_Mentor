@@ -200,28 +200,32 @@ function generateOptions(correct) {
     return [...opts].sort(() => Math.random() - 0.5);
 }
 
-// ✅ AI
 async function generateAISentence(word) {
     try {
-        let res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
             method: "POST",
             headers: {
-                "Authorization": "Bearer " + GROQ_API_KEY,
+                "Authorization": `Bearer ${GROQ_API_KEY}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 model: "llama-3.3-70b-versatile",
                 messages: [
-                    { role: "user", content: `Use "${word}" in a sentence.` }
+                    {
+                        role: "user",
+                        content: `Use "${word}" in a sentence.`
+                    }
                 ]
             })
         });
 
-        let data = await res.json();
-        return data?.choices?.[0]?.message?.content?.trim() || "Sentence using " + word;
+        const data = await res.json();
+        return data?.choices?.[0]?.message?.content?.trim() ||
+               `Sentence using ${word}`;
 
     } catch (e) {
-        return "Sentence using " + word;
+        console.error(e);
+        return `Sentence using ${word}`;
     }
 }
 

@@ -8,7 +8,7 @@ let filteredWords = [];
 let progress = {};
 let isAnswerLocked = false;
 
-const GROQ_API_KEY = "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";
+const GROQ_API_KEY = "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";
 const PIXABAY_KEY = "42051557-64e42dfa97b3a7efc88de6d55";
 
 
@@ -210,7 +210,7 @@ async function generateAISentence(word) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "llama-3.1-8b-instant",
+                model: "openai/gpt-oss-20b",
                 messages: [
                     { role: "user", content: `Use "${word}" in a sentence.` }
                 ]

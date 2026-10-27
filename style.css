@@ -1,0 +1,577 @@
+body {
+    font-family: Arial;
+    background: #4535bc;
+    margin: 0;
+}
+
+.nav {
+    background: #1344a1;
+    padding: 10px;
+}
+
+.nav button{
+
+    background:rgba(255,255,255,.15);
+    color:white;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    padding:10px 20px;
+
+    margin-right:8px;
+
+    backdrop-filter:blur(8px);
+
+}
+
+.nav button:hover{
+
+    background:white;
+    color:#2563eb;
+
+}
+
+.container {
+    padding: 20px;
+}
+
+#word {
+    margin-top: 0;   /* 🔥 removes top gap */
+}
+
+/* ✅ MASTER CARD STYLE (USED EVERYWHERE) */
+.card {
+    position: relative;
+
+    background: #2563eb;
+    backdrop-filter: blur(8px);
+
+    color: white;
+    padding: 25px;
+    padding-top: 10px;
+    border-radius: 15px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Optional glass effect overlay */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+
+    z-index: -1; /* ✅ fix: push behind content */
+}
+
+.option {
+    background: rgba(255,255,255,0.08);  /* ✅ same as result rows */
+    color: white;
+
+    padding: 14px;
+    margin-bottom: 8px;
+
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+.correct{
+
+    color:#00ff88;
+    background:rgba(0,255,136,.18);
+    border:1px solid rgba(0,255,136,.35);
+
+}
+
+.incorrect{
+
+    color:#ff6b6b;
+    background:rgba(255,107,107,.18);
+    border:1px solid rgba(255,107,107,.35);
+
+}
+
+.neutral{
+
+    color:#ffd166;
+    background:rgba(255,209,102,.18);
+    border:1px solid rgba(255,209,102,.35);
+
+}
+
+/* ✅ BLUE BACKGROUND FOR QUIZ & RESULT */
+
+.quiz-bg {
+    background: linear-gradient(135deg, #0a3d62, #3c6382);
+    color: white;
+}
+
+.result-bg {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+}
+
+/* Improve readability inside cards */
+.quiz-bg .option,
+.result-bg .option {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.quiz-bg .option:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+button{
+
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    color:white;
+
+    border:none;
+    border-radius:10px;
+
+    padding:10px 18px;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+
+.result-bg button {
+    background: #ffffff;
+    color: #1e3c72;
+}
+
+/* ✅ FULL PAGE BACKGROUND */
+
+.quiz-page {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    color: white;
+}
+
+.result-page {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Options styling */
+.quiz-page .option {
+    background: rgba(255,255,255,0.08);  /* ✅ SAME AS RESULT */
+}
+
+.quiz-page .option:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* ✅ HOME PAGE THEME */
+
+.home-page {
+    background: linear-gradient(181deg, #2877bd, #008dfe);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Home card styling */
+.home-page .card {
+    background: rgb(30 76 176 / 69%);
+    backdrop-filter: blur(8px);
+    color: white;
+    text-align: center;
+}
+
+/* Headings */
+.home-page h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.home-page p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Buttons */
+.home-page button,
+.home-page .button {
+    background: white;
+    color: #0078d4;
+    font-weight: bold;
+}
+
+/* ✅ SETUP PAGE THEME */
+
+.setup-page {
+    background: linear-gradient(135deg, #3c82f6, #06b6d4);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Glass card effect */
+.setup-page .card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    color: white;
+    text-align: center;
+}
+
+/* Dropdown styling */
+.setup-page select {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* Button styling */
+
+.setup-page button{
+
+    background:linear-gradient(135deg,#10b981,#059669);
+
+    color:white;
+
+    font-size:17px;
+
+    padding:12px 35px;
+
+}
+
+/* ✅ RESULT TABLE CENTERED */
+#resultDetails {
+    display: flex;
+    justify-content: center;
+}
+
+/* ✅ BUTTON STYLE */
+.speak-btn{
+
+    width:28px;
+    height:28px;
+
+    border:none;
+
+    border-radius:40%;
+
+    background:white;
+
+    transition:.2s;
+
+}
+
+.speak-btn:hover{
+
+    background:white;
+
+    color:red;
+
+    transform:scale(1.12);
+
+}
+
+
+/* ✅ RESULT CONTAINER */
+.result-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+
+/* ✅ HEADER (WORD + STATUS) */
+.result-header {
+    width: 100%;
+    max-width: 650px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* ✅ WORD */
+.result-word {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ✅ STATUS */
+.result-status{
+
+    font-size:16px;
+    font-weight:bold;
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+
+}
+
+/* ✅ TABLE */
+.result-table {
+    width: 100%;
+    max-width: 650px;
+    border-collapse: collapse;
+}
+
+/* ✅ ROWS */
+.result-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+}
+
+
+/* ✅ CELLS */
+.result-table td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* ✅ COLUMN WIDTHS */
+.result-table td:nth-child(1) {
+    width: 160px;
+    font-weight: bold;
+}
+
+.result-table td:nth-child(2) {
+    width: auto;
+}
+
+.result-table td:nth-child(3) {
+    width: 70px;
+    text-align: right;
+}
+
+/* ✅ ICON BUTTON */
+.result-table button {
+    background: rgba(0, 0, 0, 0.45);
+    border: none;
+    padding: 4px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ✅ FOOTER */
+.result-footer {
+    margin-top: 20px;
+}
+
+/* ✅ NEXT BUTTON */
+
+.result-footer button{
+
+    background:linear-gradient(135deg,#10b981,#059669);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    padding:12px 35px;
+
+}
+
+/* ✅ QUIZ CONTAINER (MATCH RESULT) */
+.quiz-container {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* ✅ HEADER */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+/* ✅ WORD ROW */
+.quiz-word {
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ OPTIONS TABLE STYLE */
+.quiz-options {
+    width: 100%;
+}
+
+/* Each option like RESULT row */
+.quiz-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 15px;
+    margin-bottom: 8px;
+
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.quiz-option:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Option text */
+.quiz-option-text {
+    text-align: left;
+}
+
+
+/* ✅ QUIZ ROW SAME AS RESULT TABLE ROW */
+.quiz-row {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quiz-row td {
+    padding: 14px;
+    text-align: left;
+}
+
+/* Hover effect */
+
+.quiz-row{
+
+    transition:all .25s ease;
+
+}
+
+.quiz-row td{
+
+    border-radius:8px;
+
+    transition:all .25s ease;
+
+}
+
+.quiz-row:hover td{
+
+    background:rgba(255,255,255,.18);
+
+    transform:translateX(8px);
+
+    box-shadow:0 6px 16px rgba(0,0,0,.18);
+
+}
+
+
+/* Make entire row clickable feel */
+.result-table tr {
+    background: rgba(255,255,255,0.08);
+}
+
+.quiz-page .card {
+    background: rgb(21 83 240 / 12%);
+    backdrop-filter: blur(8px);
+    padding-top: 5px;
+}
+
+.result-page .card {
+    background: rgb(21 83 240 / 12%);
+    backdrop-filter: blur(8px);
+    padding-top: 5px;
+}
+
+.image-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.gallery-item{
+    text-align:center;
+}
+
+.result-image{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.caption{
+    margin-top:8px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.quiz-status{
+    margin-bottom:20px;
+}
+
+.status-row{
+
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.progress{
+
+    width:100%;
+    height:12px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+
+}
+
+#progressBar{
+
+    width:0%;
+    height:100%;
+    background:#4CAF50;
+    transition:.3s;
+
+}

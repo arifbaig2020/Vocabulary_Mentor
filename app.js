@@ -210,7 +210,7 @@ async function generateAISentence(word) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "llama-prompt-guard-2-86m",
+                model: "llama-3.3-70b-versatile",
                 messages: [
                     { role: "user", content: `Use "${word}" in a sentence.` }
                 ]

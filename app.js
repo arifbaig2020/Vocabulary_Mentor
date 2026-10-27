@@ -210,7 +210,7 @@ async function generateAISentence(word) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "openai/gpt-oss-20b",
+                model: "llama-3.3-70b-versatile",
                 messages: [
                     { role: "user", content: `Use "${word}" in a sentence.` }
                 ]
